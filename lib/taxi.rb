@@ -1,4 +1,6 @@
 class Taxi
+	attr_accessor :x, :y, :direction
+
   def initialize(x, y, direction)
     @x = x
     @y = y
@@ -19,10 +21,8 @@ class Taxi
 	end
 
 	if @x == @xDest && @y == @yDest
-		
-	end
 
-	@x.to_s + "," + @y.to_s + "," + @direction
+	end
   end
 
   def location
