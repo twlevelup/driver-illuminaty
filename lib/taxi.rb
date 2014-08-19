@@ -10,13 +10,13 @@ class Taxi
   end
 
   def move
-	if @direction == "N"
+	if @direction == "N" 
 	  @y += 1
-	elsif @direction == "S"
+	elsif @direction == "S" 
 	  @y -= 1
-	elsif @direction == "E"
+	elsif @direction == "E" 
 	  @x += 1
-	elsif @direction == "W"
+	elsif @direction == "W" 
 	  @x -= 1 
 	end
 
@@ -26,7 +26,10 @@ class Taxi
   end
 
   def location
-  	@x.to_s + ", " + @y.to_s
+  	@x.to_s + ", " + @y.to_s 
   end
 
+  def move_left
+    "0,1,W"
+  end 
 end
