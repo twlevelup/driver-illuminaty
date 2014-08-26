@@ -7,6 +7,27 @@ class Taxi
     @direction = direction
     @xDest = 0
     @yDest = 0
+    @reachedDestination = false
+  end
+
+  def is_arrived?
+ # 	if @reachedDestination
+ # 		puts "You have reached your Destination"
+ # 	else
+ # 		puts "You have not yet reached your destination"
+ # 	end
+  	@reachedDestination
+  end
+
+  def set_destination(xDestination, yDestination)
+  	@xDest = xDestination
+  	@yDest = yDestination
+  	is_arrived?
+  end
+
+
+  def location
+  	@x.to_s + ", " + @y.to_s
   end
 
   def move
@@ -21,13 +42,16 @@ class Taxi
 	end
 
 	if @x == @xDest && @y == @yDest
-
+		@reachedDestination = true
+	else
+		@reachedDestination = false
 	end
-  end
 
-  def location
-  	@x.to_s + ", " + @y.to_s 
-  end
+	if is_arrived?
+		location
+	end
+
+end
 
   def move_left
     if @direction == "N" 
