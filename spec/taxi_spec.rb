@@ -81,7 +81,45 @@ describe Taxi do
         expect(current_taxi.y).to eq(2) #assert
        expect(position).to eq("N") #assert
       end
+       
 
     end
-    
+    context "moving right" do
+      it 'is an intersection and go right and position is north' do
+        current_taxi = Taxi.new 1, 1,"N" #arrange
+
+        position = current_taxi.move_right  #act
+        current_taxi.move 
+        expect(current_taxi.x).to eq(2)
+        expect(current_taxi.y).to eq(1)
+        expect(position).to eq("E") #assert
+      end
+
+      it 'is an intersection and go right and position is east' do
+        current_taxi = Taxi.new 1, 1,"E" #arrange
+        position = current_taxi.move_right  #act
+        current_taxi.move 
+        expect(current_taxi.x).to eq(1)
+        expect(current_taxi.y).to eq(0)
+        expect(current_taxi.direction).to eq('S')
+        
+      end
+      it 'is an intersection and go right and position is south' do
+        current_taxi = Taxi.new 1, 1,"S" #arrange
+        position = current_taxi.move_right  #act
+        current_taxi.move 
+        expect(current_taxi.x).to eq(0)
+        expect(current_taxi.y).to eq(1)
+        expect(current_taxi.direction).to eq('W')
+      end
+
+      it 'is an intersection and go right and position is west' do
+        current_taxi = Taxi.new 1, 1,"W" #arrange
+        position = current_taxi.move_right  #act
+        current_taxi.move 
+        expect(current_taxi.x).to eq(1)#assert
+        expect(current_taxi.y).to eq(2)#assert
+        expect(position).to eq("N") #assert
+      end
+    end
 end

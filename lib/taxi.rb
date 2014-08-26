@@ -62,7 +62,19 @@ end
       @direction="E"
 	  elsif @direction == "E"
       @direction="N"
+	  end
+  end
+  
+  def move_right
+    if @direction == "N" 
+      @direction ="E"
+    elsif @direction == "E"
+      @direction="S"
+    elsif @direction == "S"
+      @direction="W"
+    elsif @direction == "W"
+      @direction="N"
+    end
 	end
-		
-  end 
+   
 end
