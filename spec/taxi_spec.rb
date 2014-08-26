@@ -122,4 +122,5 @@ describe Taxi do
         expect(position).to eq("N") #assert
       end
     end
+    
 end
