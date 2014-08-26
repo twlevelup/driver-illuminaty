@@ -31,13 +31,13 @@ class Taxi
   end
 
   def move
-	if @direction == "N" 
+	if @direction == 'N' 
 	  @y += 1
-	elsif @direction == "S" 
+	elsif @direction == 'S' 
 	  @y -= 1
-	elsif @direction == "E" 
+	elsif @direction == 'E' 
 	  @x += 1
-	elsif @direction == "W" 
+	elsif @direction == 'W' 
 	  @x -= 1 
 	end
 
@@ -54,26 +54,26 @@ class Taxi
 end
 
   def move_left
-    if @direction == "N" 
-	  @direction ="W"
-	elsif @direction == "W"
-      @direction="S"
-    elsif @direction == "S"
-      @direction="E"
-	elsif @direction == "E"
-      @direction="N"
-	end
+    if @direction == 'N' 
+	    @direction ='W'
+	  elsif @direction == 'W'
+      @direction='S'
+    elsif @direction == 'S'
+      @direction='E'
+	  elsif @direction == 'E'
+      @direction='N'
+	 end
   end
   
   def move_right
-    if @direction == "N" 
-      @direction ="E"
-    elsif @direction == "E"
-      @direction="S"
-    elsif @direction == "S"
-      @direction="W"
-    elsif @direction == "W"
-      @direction="N"
+    if @direction == 'N' 
+      @direction ='E'
+    elsif @direction == 'E'
+      @direction='S'
+    elsif @direction == 'S'
+      @direction='W'
+    elsif @direction == 'W'
+      @direction='N'
     end
   end
    
