@@ -30,6 +30,15 @@ class Taxi
   end
 
   def move_left
-    "0,1,W"
+    if @direction == "N" 
+	    @direction ="W"
+	  elsif @direction == "W"
+      @direction="S"
+    elsif @direction == "S"
+      @direction="E"
+	  elsif @direction == "E"
+      @direction="N"
+	end
+		
   end 
 end
