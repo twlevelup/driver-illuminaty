@@ -27,7 +27,7 @@ class Taxi
 
 
   def location
-  	@x.to_s + ", " + @y.to_s
+  	@x.to_s + ", " + @y.to_s + ", " + @direction
   end
 
   def move

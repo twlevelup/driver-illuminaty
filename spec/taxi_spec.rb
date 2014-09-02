@@ -35,14 +35,14 @@ describe Taxi do
 
     it 'retrieves its location when asked' do
       current_taxi = Taxi.new 1, 1, "N"
-      expect(current_taxi.location).to eq("1, 1")
+      expect(current_taxi.location).to eq("1, 1, N")
     end
 
     it 'determines if it has reached its destination and confirms it' do
       current_taxi = Taxi.new 1, 1, "N"
       current_taxi.set_destination 1, 3
       current_taxi.move
-      expect(current_taxi.move).to eq("1, 3")
+      expect(current_taxi.move).to eq("1, 3, N")
     end
     
     context "moving left" do
