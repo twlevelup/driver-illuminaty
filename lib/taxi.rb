@@ -49,6 +49,7 @@ class Taxi
 
 	if is_arrived?
 		location
+    puts "You have arrived"
 	end
 
 end
