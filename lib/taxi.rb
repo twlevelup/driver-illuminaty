@@ -1,5 +1,5 @@
 class Taxi
-	attr_accessor :x, :y, :direction
+  attr_accessor :x, :y, :direction
 
   def initialize(x, y, direction)
     @x = x
@@ -55,14 +55,14 @@ end
 
   def move_left
     if @direction == "N" 
-	    @direction ="W"
-	  elsif @direction == "W"
+	  @direction ="W"
+	elsif @direction == "W"
       @direction="S"
     elsif @direction == "S"
       @direction="E"
-	  elsif @direction == "E"
+	elsif @direction == "E"
       @direction="N"
-	  end
+	end
   end
   
   def move_right
@@ -75,6 +75,6 @@ end
     elsif @direction == "W"
       @direction="N"
     end
-	end
+  end
    
 end
