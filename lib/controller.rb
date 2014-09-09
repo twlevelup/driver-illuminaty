@@ -1,4 +1,5 @@
 require_relative "taxi"
+require_relative "interface"
 
 class Controller
 	attr_accessor :taxi_array
@@ -16,18 +17,19 @@ class Controller
 		taxi_array[taxi_index]
 	end
 
-	def parse_commands (taxi_index, commands)
+	def run_commands (taxi_index)
+		commands = Interface.accept_commands
 		commands.chars do |command| 
 			case command
 			when 'M' 
 				taxi_array[taxi_index].move
 				puts "Moving forward"
 			when 'L'
-				taxi_array[taxi_index].move_left
+				taxi_array[taxi_index].turn_left
 				puts "Turning left"
 			when 'R'
-				#	taxi_array[taxi_index].move_right
-				# puts "Turning right"
+				taxi_array[taxi_index].turn_right
+				puts "Turning right"
 			else
 				"Invalid input"
 			end
@@ -36,39 +38,3 @@ class Controller
 
 
 end
-
-#(1..3).each do |x|
-
-#	inp = $stdin.gets
-#	array = inp.split(' ')
-#	state = array[0].split(',')
-#	commands = array[1]
-
-#	puts state
-#	puts commands
-
-#	t = Taxi.new state[0].to_i, state[1].to_i, state[2]
-
-#	t.set_destination 1, 3
-
-#	commands.chars do |command| 
-#		case command
-#		when 'M' 
-#			t.move
-#			puts "Moving forward"
-#		when 'L'
-#			t.move_left
-#			puts "Turning left"
-#		when 'R' 
-#			t.move_right
-#		else
-
-#		end
-
-#	end
-#	puts t.location
-
-
-	
-#end
-	

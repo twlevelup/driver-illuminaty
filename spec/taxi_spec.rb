@@ -40,7 +40,9 @@ describe Taxi do
 
     it 'determines if it has reached its destination and confirms it' do
       current_taxi = Taxi.new 1, 1, "N"
-      current_taxi.set_destination 1, 3
+      current_punter = Punter.new 1, 1, 1, 3
+      current_taxi.assign_punter current_punter
+#      current_taxi.set_destination 1, 3
       current_taxi.move
       current_taxi.move
       expect(current_taxi.location).to eq("1, 3, N")
@@ -50,7 +52,7 @@ describe Taxi do
       it 'is an intersection and go left and position is north' do
         current_taxi = Taxi.new 1, 1,"N" #arrange
 
-        position = current_taxi.move_left  #act
+        position = current_taxi.turn_left  #act
         current_taxi.move 
         expect(current_taxi.x).to eq(0)#assert
         expect(current_taxi.y).to eq(1)#assert
@@ -59,7 +61,7 @@ describe Taxi do
 
       it 'is an intersection and go left and position is west' do
         current_taxi = Taxi.new 1, 1,"W" #arrange
-        position = current_taxi.move_left  #act
+        position = current_taxi.turn_left  #act
         current_taxi.move 
         expect(current_taxi.x).to eq(1)#assert
         expect(current_taxi.y).to eq(0)#assert
@@ -68,7 +70,7 @@ describe Taxi do
 
       it 'is an intersection and go left and position is south' do
         current_taxi = Taxi.new 1, 1,"S" #arrange
-        position = current_taxi.move_left  #act
+        position = current_taxi.turn_left  #act
         current_taxi.move 
         expect(current_taxi.x).to eq(2) #assert
         expect(current_taxi.y).to eq(1) #assert 
@@ -76,7 +78,7 @@ describe Taxi do
       end
       it 'is an intersection and go left and position is east' do
         current_taxi = Taxi.new 1, 1,"E" #arrange
-        position = current_taxi.move_left  #act
+        position = current_taxi.turn_left  #act
         current_taxi.move 
         expect(current_taxi.x).to eq(1) #assert
         expect(current_taxi.y).to eq(2) #assert
@@ -89,7 +91,7 @@ describe Taxi do
       it 'is an intersection and go right and position is north' do
         current_taxi = Taxi.new 1, 1,"N" #arrange
 
-        position = current_taxi.move_right  #act
+        position = current_taxi.turn_right  #act
         current_taxi.move 
         expect(current_taxi.x).to eq(2)
         expect(current_taxi.y).to eq(1)
@@ -98,7 +100,7 @@ describe Taxi do
 
       it 'is an intersection and go right and position is east' do
         current_taxi = Taxi.new 1, 1,"E" #arrange
-        position = current_taxi.move_right  #act
+        position = current_taxi.turn_right  #act
         current_taxi.move 
         expect(current_taxi.x).to eq(1)
         expect(current_taxi.y).to eq(0)
@@ -107,7 +109,7 @@ describe Taxi do
       end
       it 'is an intersection and go right and position is south' do
         current_taxi = Taxi.new 1, 1,"S" #arrange
-        position = current_taxi.move_right  #act
+        position = current_taxi.turn_right  #act
         current_taxi.move 
         expect(current_taxi.x).to eq(0)
         expect(current_taxi.y).to eq(1)
@@ -116,7 +118,7 @@ describe Taxi do
 
       it 'is an intersection and go right and position is west' do
         current_taxi = Taxi.new 1, 1,"W" #arrange
-        position = current_taxi.move_right  #act
+        position = current_taxi.turn_right  #act
         current_taxi.move 
         expect(current_taxi.x).to eq(1)#assert
         expect(current_taxi.y).to eq(2)#assert

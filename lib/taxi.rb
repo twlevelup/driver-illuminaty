@@ -1,60 +1,70 @@
+require_relative "punter"
+
 class Taxi
-  attr_accessor :x, :y, :direction
+  attr_accessor :x, :y, :direction, :vacant, :current_punter
 
   def initialize(x, y, direction)
     @x = x
     @y = y
     @direction = direction
-    @xDest = 0
-    @yDest = 0
-    @reachedDestination = false
+    @vacant = true
+    @currentPunter = nil
   end
 
-  def is_arrived?
- # 	if @reachedDestination
- # 		puts "You have reached your Destination"
- # 	else
- # 		puts "You have not yet reached your destination"
- # 	end
-  	@reachedDestination
+  def assign_punter(current_punter)
+    @current_punter = current_punter
   end
 
-  def set_destination(xDestination, yDestination)
-  	@xDest = xDestination
-  	@yDest = yDestination
-  	is_arrived?
+  def arrived_pickup?
+    if @currentPunter != nil && 
+      @x == currentPunter.xPickup && 
+      @y == currentPunter.yPickup
+      true
+    else
+      false
+    end
   end
 
+  def arrived_destination?
+    if @currentPunter != nil && 
+      @x == currentPunter.xDestination && 
+      @y == currentPunter.yDestination
+      true
+    else
+      false
+    end
+  end
 
   def location
   	@x.to_s + ", " + @y.to_s + ", " + @direction
   end
 
   def move
-	if @direction == 'N' 
-	  @y += 1
-	elsif @direction == 'S' 
-	  @y -= 1
-	elsif @direction == 'E' 
-	  @x += 1
-	elsif @direction == 'W' 
-	  @x -= 1 
-	end
+  	if @direction == 'N' 
+      @y += 1
+    elsif @direction == 'S' 
+      @y -= 1
+    elsif @direction == 'E' 
+      @x += 1
+    elsif @direction == 'W' 
+      @x -= 1 
+    end
 
-	if @x == @xDest && @y == @yDest
-		@reachedDestination = true
-	else
-		@reachedDestination = false
-	end
+    if arrived_pickup?
+      vacant = false
+      location
+      puts "Arrived at pick up point. The taxi is now occupied. "
+    end
 
-	if is_arrived?
-		location
-    puts "You have arrived"
-	end
+    if arrived_destination?
+      current_punter = nil
+      vacant = true
+      location
+      puts "Arrived at destination. The taxi is now vacant. "
+    end
+  end
 
-end
-
-  def move_left
+  def turn_left
     if @direction == 'N' 
 	    @direction ='W'
 	  elsif @direction == 'W'
@@ -66,7 +76,7 @@ end
 	 end
   end
   
-  def move_right
+  def turn_right
     if @direction == 'N' 
       @direction ='E'
     elsif @direction == 'E'
