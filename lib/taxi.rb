@@ -39,6 +39,10 @@ class Taxi
   	@x.to_s + ", " + @y.to_s + ", " + @direction
   end
 
+  def is_vacant?
+    @vacant
+  end
+
   def move
   	if @direction == 'N' 
       @y += 1
