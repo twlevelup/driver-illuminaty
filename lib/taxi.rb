@@ -91,5 +91,17 @@ class Taxi
       @direction='N'
     end
   end
+
+  def reverse
+    if @direction == 'N' 
+      @y -= 1
+    elsif @direction == 'S'
+      @y += 1
+    elsif @direction == 'W'
+      @x += 1
+    elsif @direction == 'E'
+      @x -= 1
+    end
+  end
    
 end

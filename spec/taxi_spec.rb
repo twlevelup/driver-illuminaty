@@ -125,5 +125,33 @@ describe Taxi do
         expect(position).to eq("N") #assert
       end
     end
-    
+    context "moving reverse" do
+      it 'reverse one block facing north' do
+        current_taxi = Taxi.new 1, 1,"N" #arrange
+        current_taxi.reverse 
+        expect(current_taxi.x).to eq(1)
+        expect(current_taxi.y).to eq(0)#assert
+      end
+
+      it 'reverse one block facing south' do
+        current_taxi = Taxi.new 1, 1,"S" #arrange
+        current_taxi.reverse 
+        expect(current_taxi.x).to eq(1)
+        expect(current_taxi.y).to eq(2)#assert
+      end
+
+      it 'reverse one block facing west' do
+        current_taxi = Taxi.new 1, 1,"W" #arrange
+        current_taxi.reverse 
+        expect(current_taxi.x).to eq(2)
+        expect(current_taxi.y).to eq(1)#assert
+      end
+
+      it 'reverse one block facing east' do
+        current_taxi = Taxi.new 1, 1,"E" #arrange
+        current_taxi.reverse 
+        expect(current_taxi.x).to eq(0)
+        expect(current_taxi.y).to eq(1)#assert
+      end
+    end
 end
