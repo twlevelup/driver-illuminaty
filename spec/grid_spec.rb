@@ -41,15 +41,6 @@ describe Grid do
 		expect(is_outside).to eq(false)#assert
 	end
 	
-	it 'should be inside the grid 2' do	
-		current_grid = Grid.new 9, 5  #arrange
-		taxi = Taxi.new 9, 5,"S" #arrange
-		taxi.move #act
-		current_grid.add_taxi taxi #act
-		is_outside = current_grid.taxi_outside? taxi
-		expect(is_outside).to eq(false)#assert
-	end
-	
 	it 'should be ouside the grid with negatives values' do	
 		current_grid = Grid.new 9, 5  #arrange
 		taxi = Taxi.new 0, 0,"S" #arrange
