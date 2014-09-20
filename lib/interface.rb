@@ -5,7 +5,8 @@ class Interface
 		puts "2. Assign a punter"
 		puts "3. Run commands"
 		puts "4. Check taxi status"
-		puts "Please enter 1, 2, 3 or 4: "
+		puts "5. Set boundaries"
+		puts "Please enter 1, 2, 3, 4 or 5: "
 		option = $stdin.gets.to_i
 		option
 	end
@@ -32,6 +33,12 @@ class Interface
 		puts "Please enter one or more commands: "
 		commands = $stdin.gets
 		commands
+	end
+
+	def self.accept_boundaries
+		puts "Please enter boundaries, e.g. 9,5 "
+		boundaries = $stdin.gets
+		boundaries
 	end
 end
 	
