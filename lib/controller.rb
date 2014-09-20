@@ -92,6 +92,9 @@ class Controller
 			when 'R'
 				current_taxi.turn_right
 				puts "Turning right"
+			when 'B'
+				current_taxi.reverse
+				puts "Moving reverse"
 			else
 				"Invalid commands"
 			end
